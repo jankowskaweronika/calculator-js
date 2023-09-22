@@ -1,49 +1,80 @@
-// STATE
-let calculator = 0
+let result = 0
 
-const button = document.querySelector('button')
-const displayElement = document.querySelector('display')
-const resultElement = document.querySelector('result')
-const division = document.querySelector('handleToDivision')
-const multiply = document.querySelector('handleToMultiply')
-const add = document.querySelector('handleToAdd')
-const sub = document.querySelector('handleToSub')
+let x = 0
+let y = 0
+let operator = null
+
+const inputElementX = document.querySelector('.x')
+const inputElementY = document.querySelector('.y')
+
+const displayElement = document.querySelector('.display')
+const buttonsElements = document.querySelectorAll('button')
+const resultElement = document.querySelector('.result')
 
 
-// LOGIC
 
-function handleClick(value) {
-    if (isNaN(Number(value))) {
-        switch (value) {
-            case '+':
-            case '-':
-            case '*':
-            case '/':
-                break
-            case '=':
-                result()
-                break
-        }
-    } else {
-        result.innerHtml = calculator
-        console.log(Number(value))
-    }
-
+const initCalculator = () => {
+    add()
+    sub()
+    multi()
+    divide()
+    render()
 }
 
-function handleToDivision(){
-    
+const add = () => {
+    operator = '+'
+    result = x + y;
+    render()
 }
 
-function result(_value) {
+const subtract = () => {
+    operator = '-'
+    result = x - y;
+    render()
+}
+
+const multiply = () => {
+    operator = '*'
+    result = x * y;
+    render()
+}
+
+const divide = () => {
+    operator = '/'
+    result = x / y;
+    render()
+}
+
+const render = () => {
+    resultElement.value = result
+    displayElement.value = operator
     console.log(result)
-    result.innerHtml = calculator
-
 }
 
-// DISPLAY/RENDER
-button.addEventListener('click', () => handleClick())
+buttonsElements.forEach(function(buttonElement){
+    console.log(typeof buttonElement.className)
+    if (buttonElement.className === 'add') {
+        buttonElement.addEventListener('click', add)
+    }
+    if (buttonElement.className === 'subtract') {
+        buttonElement.addEventListener('click', subtract)
+    }
+    if (buttonElement.className === 'multiply') {
+        buttonElement.addEventListener('click', multiply)
+    }
+    if (buttonElement.className === 'divide') {
+        buttonElement.addEventListener('click', divide)
+    }
+})
 
+inputElementX.addEventListener('input', function(event){
+    const newX = event.target.value
+    x = Number(newX)
+    console.log(newX)
+})
 
-
-
+inputElementY.addEventListener('input', function(event){
+    const newY = event.target.value
+    y = Number(newY)
+    console.log(newY)
+})
