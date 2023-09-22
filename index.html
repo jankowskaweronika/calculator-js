@@ -1,44 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
+    <meta
+        http-equiv="X-UA-Compatible"
+        content="IE=edge"
+    >
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+    <link
+        rel="stylesheet"
+        href="./style.css"
+    >
     <title>Calculator</title>
 </head>
+
 <body>
     <div class="container">
         <div class="calculator">
+            <div>
+                <input
+                    class="display"
+                    type="text"
+                >
+            </div>
+
+            <div class="button">
                 <div>
-                    <input id="display" type="text">
-                </div>
-                <div id="buttons">
-                    <button onclick="appendToDisplay('1')">1</button>
-                    <button onclick="appendToDisplay('2')">2</button>
-                    <button onclick="appendToDisplay('3')">3</button>
-                    <button onclick="appendToDisplay('/')">/</button>
-                </div>
-                <div>
-                    <button onclick="appendToDisplay('4')">4</button>
-                    <button onclick="appendToDisplay('5')">5</button>
-                    <button onclick="appendToDisplay('6')">6</button>
-                    <button onclick="appendToDisplay('*')">*</button>
-                </div>
-                <div>
-                    <button onclick="appendToDisplay('7')">7</button>
-                    <button onclick="appendToDisplay('8')">8</button>
-                    <button onclick="appendToDisplay('9')">9</button>
-                    <button onclick="appendToDisplay('+')">+</button>
+                    <button onclick="handleClick('1')">1</button>
+                    <button onclick="handleClick('2')">2</button>
+                    <button onclick="handleClick('3')">3</button>
+                    <button
+                        class="handleToDivision"
+                        onclick="handleClick('/')">/</button>
                 </div>
                 <div>
-                    <button onclick="appendToDisplay('0')">0</button>
-                    <button onclick="appendToDisplay('=')">=</button>
-                    <button onclick="appendToDisplay('-')">-</button>
+                    <button onclick="handleClick('4')">4</button>
+                    <button onclick="handleClick('5')">5</button>
+                    <button onclick="handleClick('6')">6</button>
+                    <button
+                        class="handleToMultiply"
+                        onclick="handleClick('*')">*</button>
                 </div>
+                <div>
+                    <button onclick="handleClick('7')">7</button>
+                    <button onclick="handleClick('8')">8</button>
+                    <button onclick="handleClick('9')">9</button>
+                    <button
+                        class="handleToAdd"
+                        onclick="handleClick('+')">+</button>
+                </div>
+                <div>
+                    <button onclick="handleClick('0')">0</button>
+                    <button
+                        class="result"
+                        onclick="handleClick('=')">=</button>
+                    <button
+                        class="handleToSub"
+                        onclick="handleClick('-')">-</button>
+                </div>
+            </div>
         </div>
     </div>
     <script src="./script.js"></script>
 </body>
-</html>
 
+</html>
